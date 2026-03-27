@@ -10,8 +10,8 @@ type DieType = {
 }
 
 export default function App() {
-  const [dice, setDice] = useState(() => generateAllNewDice())
-  const buttonRef = useRef(null)
+  const [dice, setDice] = useState<DieType[]>(() => generateAllNewDice())
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const gameWon = dice.every(die => die.isHeld) &&
     dice.every(die => die.value === dice[0].value)
