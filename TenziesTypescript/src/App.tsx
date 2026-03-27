@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react"
 import Die from "./Die"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
+import type { JSX } from 'react'
 
 type DieType = {
   value: number
@@ -9,7 +10,7 @@ type DieType = {
   id: string
 }
 
-export default function App() {
+export default function App(): JSX.Element {
   const [dice, setDice] = useState<DieType[]>(() => generateAllNewDice())
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -18,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
     if (gameWon) {
-      buttonRef.current.focus()
+      buttonRef.current?.focus()
     }
   }, [gameWon])
 
