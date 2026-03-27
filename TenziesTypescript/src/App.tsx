@@ -14,8 +14,8 @@ export default function App(): JSX.Element {
   const [dice, setDice] = useState<DieType[]>(() => generateAllNewDice())
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  const gameWon = dice.every(die => die.isHeld) &&
-    dice.every(die => die.value === dice[0].value)
+  const gameWon = dice.every((die: DieType): boolean => die.isHeld) &&
+    dice.every((die: DieType): boolean => die.value === dice[0].value)
 
   useEffect(() => {
     if (gameWon) {
@@ -45,7 +45,7 @@ export default function App(): JSX.Element {
     }
   }
 
-  function hold(id: string):void {
+  function hold(id: string): void {
     setDice(oldDice => oldDice.map(die =>
       die.id === id ?
         { ...die, isHeld: !die.isHeld } :
@@ -53,7 +53,7 @@ export default function App(): JSX.Element {
     ))
   }
 
-  const diceElements = dice.map((dieObj:DieType):JSX.Element => (
+  const diceElements = dice.map((dieObj: DieType): JSX.Element => (
     <Die
       key={dieObj.id}
       value={dieObj.value}
