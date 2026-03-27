@@ -23,7 +23,7 @@ export default function App(): JSX.Element {
     }
   }, [gameWon])
 
-  function generateAllNewDice() {
+  function generateAllNewDice(): DieType[] {
     return new Array(10)
       .fill(0)
       .map(() => ({
@@ -33,7 +33,7 @@ export default function App(): JSX.Element {
       }))
   }
 
-  function rollDice() {
+  function rollDice():void {
     if (!gameWon) {
       setDice(oldDice => oldDice.map(die =>
         die.isHeld ?
