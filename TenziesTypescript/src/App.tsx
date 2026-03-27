@@ -33,7 +33,7 @@ export default function App(): JSX.Element {
       }))
   }
 
-  function rollDice():void {
+  function rollDice(): void {
     if (!gameWon) {
       setDice(oldDice => oldDice.map(die =>
         die.isHeld ?
@@ -45,7 +45,7 @@ export default function App(): JSX.Element {
     }
   }
 
-  function hold(id) {
+  function hold(id: string):void {
     setDice(oldDice => oldDice.map(die =>
       die.id === id ?
         { ...die, isHeld: !die.isHeld } :
@@ -53,7 +53,7 @@ export default function App(): JSX.Element {
     ))
   }
 
-  const diceElements = dice.map(dieObj => (
+  const diceElements = dice.map((dieObj:DieType):JSX.Element => (
     <Die
       key={dieObj.id}
       value={dieObj.value}
