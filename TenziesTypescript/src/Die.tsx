@@ -7,7 +7,7 @@ type DieProps = {
 }
 
 export default function Die(props: DieProps): JSX.Element {
-    const styles = {
+    const styles: React.CSSProperties = {
         backgroundColor: props.isHeld ? "#59E391" : "white"
     }
 
