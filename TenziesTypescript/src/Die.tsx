@@ -1,10 +1,18 @@
+import type { JSX } from 'react'
+
+type DieProps = {
+    value: number
+    isHeld: boolean
+    hold: () => void
+}
+
 export default function Die(props) {
     const styles = {
         backgroundColor: props.isHeld ? "#59E391" : "white"
     }
-    
+
     return (
-        <button 
+        <button
             style={styles}
             onClick={props.hold}
             aria-pressed={props.isHeld}
