@@ -6,7 +6,7 @@ type DieProps = {
     hold: () => void
 }
 
-export default function Die(props) {
+export default function Die(props: DieProps): JSX.Element {
     const styles = {
         backgroundColor: props.isHeld ? "#59E391" : "white"
     }
